@@ -1,0 +1,180 @@
+<odoo>
+  <data>
+
+
+
+<!--
+
+
+    <record id="sit_r_000198_ref" model="ir.ui.view">
+            <field name="name">sit_r_000198_ref</field>			
+            <field name="inherit_id" ref="sale_stock.report_delivery_document_inherit_sale_stock"/>
+            <field name="arch" type="xml">
+
+
+                <xpath expr='//div[@class="row justify-content-end"]'  position="replace">
+                        
+                </xpath>              
+
+            </field>
+    </record>
+
+-->
+
+    <record id="sit_r_000198_comprobante_de_entrega1" model="ir.ui.view">
+            <field name="name">sit_r_000198_comprobante_de_entrega1</field>			
+            <!-- <field name="model">ir.ui.view</field> -->
+            <field name="inherit_id" ref="stock.report_delivery_document"/>
+            <field name="arch" type="xml">
+                <xpath expr="/t/t/t/div/div[1]/div[1]" position="replace">
+                        <div t-if="o.origin" class="col-auto" name="div_origin">
+                            <strong>Orden:</strong>
+                            <p t-field="o.origin"/>
+                            <strong>Forma de pago:</strong>
+                            <p t-if="o.sit_forma_de_pago == 'Pago inmediato' ">Débito</p>
+                            <p t-if="o.sit_forma_de_pago != 'Pago inmediato' ">Crédito</p>                           
+                        </div>
+                        <div t-if="o.origin" class="col-auto" name="div_origin">
+                            <strong>Telefonos:</strong>
+                            <p>
+                            <span t-field="o.sit_telefono_cliente"></span>
+                            <span t-field="o.sit_mobile_cliente"></span>
+                            </p>
+                        </div>                      
+                        <div t-if="o.state" class="col-auto" name="sit_vendedor">
+                            <strong>Vendedor:</strong>
+                            <p>
+                            <span t-field="o.sit_vendedor"></span>
+                            </p>
+                            <strong># O/C:</strong>
+                            <p>
+                            <span t-field="o.sit_ref"></span>
+                            </p>							
+                        </div>                      
+					</xpath>
+
+
+                <xpath expr="/t[1]/t[1]/t[1]/div[1]/table[1]/thead[1]/tr/th[2]" position="after">
+
+                                <th ><strong>Precio</strong></th>
+                                <th ><strong>Subtotal</strong></th>                              
+                </xpath>              
+
+         
+
+                <xpath expr="/t/t/t/div/table[2]/thead/tr/th[2]" position="after">
+                                <th name="th_sml_price" class="text-center"><strong>Precio</strong></th>
+                                <th name="th_sml_price" class="text-center"><strong>Subtotal</strong></th>
+                </xpath>  
+
+      
+                <xpath expr="/t[1]/t[1]/t[1]/div[1]/table[2]/tbody[1]" position="replace">
+
+
+                        <tbody>
+<!--
+                            <tr t-foreach="o.move_line_ids_without_package" t-as="line">
+-->
+                            <tr t-foreach="o.move_ids_without_package" t-as="line">
+                                <td>
+                                  <span t-field="line.product_id"/>
+								  
+                                </td>
+                                <td>
+                                  <span t-field="line.quantity_done"/>
+                                  <span t-field="line.product_uom"/>
+
+                                </td>
+                              
+                                <td class="text-right">
+                                  <span t-field="line.invoice_items_price"  t-options='{"widget": "float", "precision": 2}'/>
+                                  
+                                </td>   
+                                <td class="text-right">
+                                  
+                                  <span t-field="line.invoice_items_subtotal"  t-options='{"widget": "float", "precision": 2}'/>
+
+                                  
+                                </td>                               
+                            </tr>
+                        </tbody>   
+              
+                </xpath>                
+     
+      
+                <xpath expr="//t[1]/t[1]/t[1]/div[1]/table[1]/tbody[1]" position="replace">
+
+
+                        <tbody>
+<!--
+                            <tr t-foreach="o.move_line_ids_without_package" t-as="line">
+-->
+                            <tr t-foreach="o.move_ids_without_package" t-as="line">
+                                <td>
+                                  <span t-field="line.product_id"/>
+							  
+                                </td>
+                                <td>
+                                  <span t-field="line.quantity_done"/>
+                                  <span t-field="line.product_uom"/>
+
+                                </td>
+                              
+                                <td class="text-right">
+                                  <span t-field="line.invoice_items_price"  t-options='{"widget": "float", "precision": 2}' />
+                                  
+                                </td>   
+                                <td class="text-right">
+                                  
+                                  <span t-field="line.invoice_items_subtotal"  t-options='{"widget": "float", "precision": 2}' />
+
+                                  
+                                </td>                               
+                            </tr>
+                        </tbody>   
+              
+                </xpath>                
+                <xpath expr='//div[@class="row justify-content-end"]'  position="replace">
+                        
+                </xpath>          
+
+
+            </field>
+    </record>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </data>
+</odoo>

@@ -1,0 +1,366 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* alphabot_sale_warehouses
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-11 03:34+0000\n"
+"PO-Revision-Date: 2022-04-10 22:35-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_PA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: alphabot_sale_warehouses
+#. openerp-web
+#: code:addons/alphabot_sale_warehouses/static/src/xml/locations_hierarchy.xml:0
+#, python-format
+msgid "...locations for this product are not found"
+msgstr "... No se encuentran ubicaciones para este producto"
+
+#. module: alphabot_sale_warehouses
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.res_config_settings_view_form_inherit
+msgid ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are allow "
+"warehouse in sale order line.\"/>"
+msgstr ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Los valores definidos aquí "
+"serán permitidos en las ordenes de venta.\"/>"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_res_config_settings__allow_warehouse
+msgid "Allow Warehouse in Sale Order Line"
+msgstr "Permitir almacén en la línea de pedido de venta"
+
+#. module: alphabot_sale_warehouses
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.res_config_settings_view_form_inherit
+msgid "Allow different warehouse for every sale order lines."
+msgstr "Permita diferentes almacenes para cada línea de pedido de venta."
+
+#. module: alphabot_sale_warehouses
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.product_product_form_only_locations
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.product_template_form_only_locations
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model,name:alphabot_sale_warehouses.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de configuración"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_res_config_settings__alphabot_sale_warehouses_default_levels
+msgid "Default Levels Expanded"
+msgstr "Niveles predeterminados expandidos"
+
+#. module: alphabot_sale_warehouses
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.res_config_settings_view_form
+msgid ""
+"Define how many levels of locations' hierarchy is shown by default "
+"(others would be \n"
+"                                hidden until not expanded manually). '1' "
+"- only the first level of locaions' hierarchy\n"
+"                                is shown."
+msgstr ""
+"Definir cuántos niveles de jerarquía de ubicaciones se muestran de forma "
+"predeterminada."
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_product_product__display_name
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_product_replenish__display_name
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_product_template__display_name
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_sale_order__display_name
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_sale_order_line__display_name
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_stock_location__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: alphabot_sale_warehouses
+#. openerp-web
+#: code:addons/alphabot_sale_warehouses/static/src/xml/locations_hierarchy.xml:0
+#, python-format
+msgid "Expand all levels"
+msgstr "Expandir todos los niveles"
+
+#. module: alphabot_sale_warehouses
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.product_product_view_form_by_locations
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.product_product_view_form_easy_by_locations
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.product_template_view_form_by_locations
+msgid "Export to XLSX"
+msgstr "Exportar a XLSX"
+
+#. module: alphabot_sale_warehouses
+#. openerp-web
+#: code:addons/alphabot_sale_warehouses/models/product_template.py:0
+#: code:addons/alphabot_sale_warehouses/static/src/xml/locations_hierarchy.xml:0
+#, python-format
+msgid "Forecast"
+msgstr "Previsión"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_stock_location__virtual_available
+msgid "Forecast Quantity"
+msgstr "Cantidad prevista"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,help:alphabot_sale_warehouses.field_stock_location__virtual_available
+msgid "Forecast Quantity for product specified on the context"
+msgstr "Cantidad prevista para el producto especificado en el contexto"
+
+#. module: alphabot_sale_warehouses
+#. openerp-web
+#: code:addons/alphabot_sale_warehouses/models/product_template.py:0
+#: code:addons/alphabot_sale_warehouses/static/src/xml/locations_hierarchy.xml:0
+#, python-format
+msgid "Free To Use"
+msgstr "Libre para usar"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_stock_location__free_qty
+msgid "Free To Use Quantity"
+msgstr "Cantidad libre para usar"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,help:alphabot_sale_warehouses.field_stock_location__free_qty
+msgid "Free to use for product specified on the context"
+msgstr "Libra para usar"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_product_product__id
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_product_replenish__id
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_product_template__id
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_res_config_settings__id
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_sale_order__id
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_sale_order_line__id
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_stock_location__id
+msgid "ID"
+msgstr ""
+
+#. module: alphabot_sale_warehouses
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.res_config_settings_view_form
+msgid ""
+"If checked, the table of stocks by locations would be not shown on "
+"product forms.\n"
+"                                The button to open the table would be "
+"shown instead. Such approach allows\n"
+"                                to facilitate loading of product forms, "
+"since compute methods would be applied only\n"
+"                                after pushing the above button."
+msgstr ""
+"Si esta seleccionado no se muestran las ubicaciones de inventario en la "
+"ficha de producto."
+
+#. module: alphabot_sale_warehouses
+#. openerp-web
+#: code:addons/alphabot_sale_warehouses/models/product_template.py:0
+#: code:addons/alphabot_sale_warehouses/static/src/xml/locations_hierarchy.xml:0
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_stock_location__incoming_qty
+#, python-format
+msgid "Incoming"
+msgstr "Entrada"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,help:alphabot_sale_warehouses.field_stock_location__incoming_qty
+msgid "Incoming for product specified on the context"
+msgstr "Libre para usar"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model,name:alphabot_sale_warehouses.model_stock_location
+msgid "Inventory Locations"
+msgstr "Ubicaciones de inventario"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_sale_order_line__is_warehouse
+msgid "Is Warehouse"
+msgstr "Es Almacén"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_product_product____last_update
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_product_replenish____last_update
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_product_template____last_update
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_sale_order____last_update
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_sale_order_line____last_update
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_stock_location____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: alphabot_sale_warehouses
+#. openerp-web
+#: code:addons/alphabot_sale_warehouses/models/product_template.py:0
+#: code:addons/alphabot_sale_warehouses/static/src/xml/locations_hierarchy.xml:0
+#, python-format
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_product_product__location_ids
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_product_template__location_ids
+msgid "Locations"
+msgstr "Ubicaciones"
+
+#. module: alphabot_sale_warehouses
+#: code:addons/alphabot_sale_warehouses/models/product_template.py:0
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.product_product_view_form_by_locations
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.product_template_view_form_by_locations
+#, python-format
+msgid "On Hand"
+msgstr "Existencias"
+
+#. module: alphabot_sale_warehouses
+#. openerp-web
+#: code:addons/alphabot_sale_warehouses/static/src/xml/locations_hierarchy.xml:0
+#, python-format
+msgid "On hand"
+msgstr "Existencias"
+
+#. module: alphabot_sale_warehouses
+#. openerp-web
+#: code:addons/alphabot_sale_warehouses/models/product_template.py:0
+#: code:addons/alphabot_sale_warehouses/static/src/xml/locations_hierarchy.xml:0
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_stock_location__outgoing_qty
+#, python-format
+msgid "Outgoing"
+msgstr "Saliente"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,help:alphabot_sale_warehouses.field_stock_location__outgoing_qty
+msgid "Outgoing for product specified on the context"
+msgstr "Libre para usar"
+
+#. module: alphabot_sale_warehouses
+#. openerp-web
+#: code:addons/alphabot_sale_warehouses/static/src/js/sale_line_qty_by_locations.js:0
+#, python-format
+msgid "Please define product first"
+msgstr "Por favor defina primero el producto"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model,name:alphabot_sale_warehouses.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model,name:alphabot_sale_warehouses.model_product_replenish
+msgid "Product Replenish"
+msgstr "Reabastecimiento de producto"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model,name:alphabot_sale_warehouses.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_stock_location__qty_available
+msgid "Quantity On Hand"
+msgstr "Cantidad en existencia"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,help:alphabot_sale_warehouses.field_stock_location__qty_available
+msgid "Quantity On Hand for product specified on the context"
+msgstr "Cantidad en existencia"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,help:alphabot_sale_warehouses.field_product_product__qty_available_total
+#: model:ir.model.fields,help:alphabot_sale_warehouses.field_product_template__qty_available_total
+msgid "Quantity on hand without filtering by default user warehouse"
+msgstr "Cantidad en existencia"
+
+#. module: alphabot_sale_warehouses
+#. openerp-web
+#: code:addons/alphabot_sale_warehouses/models/product_template.py:0
+#: code:addons/alphabot_sale_warehouses/static/src/xml/locations_hierarchy.xml:0
+#, python-format
+msgid "Reserved"
+msgstr "Cantidad reservada"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_stock_location__reserved_qty
+msgid "Reserved Quantity"
+msgstr "Cantidad real reservada"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,help:alphabot_sale_warehouses.field_stock_location__reserved_qty
+msgid "Reserved for product specified on the context"
+msgstr "Cantidad prevista para el producto especificado en el contexto"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_product_product__sale_warehouse_id
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_product_template__sale_warehouse_id
+msgid "Sale Warehouse"
+msgstr "Almacén para venta"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model,name:alphabot_sale_warehouses.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model,name:alphabot_sale_warehouses.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea de pedido de venta"
+
+#. module: alphabot_sale_warehouses
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.product_product_view_form_by_locations_button_only
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.product_product_view_form_easy_by_locations_button_only
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.product_template_view_form_by_locations_only_button
+msgid "Show Stocks by Locations"
+msgstr "Ubicaciones"
+
+#. module: alphabot_sale_warehouses
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.product_template_view_form_by_locations
+msgid "Stock balance by locations"
+msgstr "Ubicaciones de Stock"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.actions.act_window,name:alphabot_sale_warehouses.product_product_sbl_button_only_action
+#: model:ir.actions.act_window,name:alphabot_sale_warehouses.product_template_sbl_button_only_action
+msgid "Stocks By Locations"
+msgstr "Inventario por ubicación"
+
+#. module: alphabot_sale_warehouses
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.product_product_form_only_locations
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.product_product_view_form_by_locations
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.product_product_view_form_easy_by_locations
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.product_template_form_only_locations
+msgid "Stocks balance by locations"
+msgstr "Balance de inventario por ubicación"
+
+#. module: alphabot_sale_warehouses
+#: model_terms:ir.ui.view,arch_db:alphabot_sale_warehouses.res_config_settings_view_form
+msgid "Stocks by Locations"
+msgstr "Inventario por ubicación"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_res_config_settings__group_stocks_show_only_by_button
+#: model:res.groups,name:alphabot_sale_warehouses.group_stocks_show_only_by_button
+msgid "Stocks by locations: button only"
+msgstr "Inventario por ubicación: un solo botón"
+
+#. module: alphabot_sale_warehouses
+#: code:addons/alphabot_sale_warehouses/models/product_template.py:0
+#, python-format
+msgid ""
+"The Python library xlsxwriter is installed. Contact your system "
+"administrator"
+msgstr ""
+"La biblioteca de Python xlsxwriter está instalada. Póngase en contacto "
+"con el administrador del sistema"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_product_product__qty_available_total
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_product_template__qty_available_total
+msgid "Total Quantity"
+msgstr "Cantidad total"
+
+#. module: alphabot_sale_warehouses
+#: model:ir.model.fields,field_description:alphabot_sale_warehouses.field_sale_order_line__warehouses_id
+msgid "Warehouses"
+msgstr "Almacenes"

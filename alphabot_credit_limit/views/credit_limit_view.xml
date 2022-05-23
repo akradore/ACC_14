@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_customer_form" model="ir.ui.view">
+            <field name="name">Credit Limit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='accounting']" position="inside">
+                    <group string="Límite de crédito"
+                           groups="alphabot_credit_limit.group_set_credit_limit">
+                        <group>
+                            <field name="limite_activo"/>
+                            <field name="monto_alerta" attrs="{'invisible':[('limite_activo','=',False)]}"/>
+                            <field name="monto_bloqueo" attrs="{'invisible':[('limite_activo','=',False)]}"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="header_view" model="ir.ui.view">
+            <field name="name">Credit Limit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="has_due" invisible="1"/>
+                    <field name="is_warning" invisible="1"/>
+                </xpath>
+                <xpath expr="//header" position="after">
+                    <div class="alert alert-info" role="alert" style="height: 40px; margin-bottom:0px;"
+                         attrs="{'invisible':[('has_due','=',False)]}"
+                         groups="alphabot_credit_limit.group_view_due_amount">
+                        La deuda de este cliente es $<strong><field name="monto_adeudado"/></strong>.
+                        Su límite de crédito es $<strong><field name="monto_bloqueo"/></strong>.
+                    </div>
+                </xpath>
+                <xpath expr="//sheet/div[@name='button_box']" position="after">
+                    <div role="alert" class="alert alert-danger" style="height: 40px; width: 350px; margin-bottom:0px;"
+                         attrs="{'invisible':[('is_warning','=',False)]}">
+                        Verifique el <strong>límite de crédito </strong>del cliente.
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="account_move_form_inherited" model="ir.ui.view">
+            <field name="name">Account Move</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='ref']" position="after">
+                    <field name="has_due" invisible="1"/>
+                    <field name="is_warning" invisible="1"/>
+                </xpath>
+                <xpath expr="//header" position="after">
+                    <div class="alert alert-info" role="alert" style="height: 40px; margin-bottom:0px;"
+                         attrs="{'invisible':['|',('has_due','=',False),('move_type','not in',('out_invoice','out_refund','out_receipt'))]}"
+                         groups="alphabot_credit_limit.group_view_due_amount">
+                        La deuda de este cliente es $<strong><field name="monto_adeudado"/></strong>.
+                        Su límite de crédito es $<strong><field name="monto_bloqueo"/></strong>.
+                    </div>
+                </xpath>
+                <xpath expr="//sheet/div[@name='button_box']" position="after">
+                    <div role="alert" class="alert alert-danger" style="height: 40px; width: 350px; margin-bottom:0px;"
+                         attrs="{'invisible':['|',('is_warning','=',False),('move_type','not in',('out_invoice','out_refund','out_receipt'))]}">
+                        Verifique el <strong>límite de crédito </strong>del cliente.
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

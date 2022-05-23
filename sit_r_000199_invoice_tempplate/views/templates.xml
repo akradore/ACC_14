@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+
+<!--
+    <record id="sale_view_order_form_inherit_custom_warehouse_id" model="ir.ui.view">
+        <field name="name">sale.order.view.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']//tree/field[@name='name']" position="after">
+                <field name='warehouses_id'/>
+            </xpath>
+        </field>
+    </record>
+-->
+
+    <record id="account_view_move_form_inherit_module_name" model="ir.ui.view">
+        <field name="name">account.move.view.form.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_line_ids']//tree/field[@name='name']" position="after">
+                <field name="warehouses_id"/>
+            </xpath>
+        </field>
+    </record>
+
+<!-- 
+    <template id="invoice_document_custom_warehouse" name="invoice_document_custom_warehouse" inherit_id="account.report_invoice_document">
+        <xpath expr="//th[@name='th_description']" position="after">
+            <th name="th_warehouse" class="text-left">Warehouse1</th>
+        </xpath>
+        <xpath expr="//td[@name='account_invoice_line_name']" position="after">
+            <td name="td_name">
+                <t t-if="line.warehouses_id">
+                    <span t-field="line.warehouses_id.name"/>    
+                </t>
+            </td>
+        </xpath>
+    </template>
+ -->
+
+   </data>
+</odoo>

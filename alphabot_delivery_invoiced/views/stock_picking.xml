@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+     <record id="alphabot_stock_picking_form" model="ir.ui.view">
+        <field name="name">Cantidad facturada</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="action_picking_delivery_state" string="Entrega" type="object" class="oe_highlight"
+                            attrs="{'invisible':[('picking_delivery_state', '!=', 'todelivery')]}"/>
+                    <button name="action_picking_delivery_state" string="Anular entrega" type="object" class="oe_highlight"
+                            attrs="{'invisible':[('picking_delivery_state', '!=', 'delivered')]}"/>
+                </xpath>
+            <xpath expr="//field[@name='origin']" position="after">
+                    <field name="invoice_qty" string="Items Facturados" invisible="1"/>
+                    <field name="picking_type_code_domain" invisible="1"/>
+                    <field name="invoice_state" widget="badge" decoration-danger="invoice_state == 'draft'" decoration-warning="invoice_state == 'invoiced_partial'" decoration-success="invoice_state == 'invoiced'"  attrs="{'invisible': [('picking_type_code_domain', '=', False)]}" />
+                    <field name="invoice_date_first"  attrs="{'invisible': [('invoice_state', '!=', 'invoiced')]}"/>
+                    <field name="picking_delivery_state" widget="badge" decoration-danger="picking_delivery_state == 'todelivery'" decoration-success="picking_delivery_state == 'delivered'" attrs="{'invisible': [('picking_type_code_domain', '=', False)]}"/>
+                </xpath>
+              <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='operations']/field[@name='move_ids_without_package']/tree[1]/button[@name='action_assign_serial']" position="after">
+                  <field name="invoice_items_qty" string="Facturado" invisible="1"/>
+                  <field name="picking_item_type_code_domain" invisible="1"/>
+                  <field name="invoice_items_price" string="Precio" attrs="{'invisible': [('picking_item_type_code_domain', '=', False)]}"/>
+                  <field name="invoice_items_subtotal" string="Subtotal" attrs="{'invisible': [('picking_item_type_code_domain', '=', False)]}"/>
+                  <field name="invoice_item_state" widget="badge" decoration-danger="invoice_item_state == 'draft'" decoration-success="invoice_item_state == 'invoiced'" attrs="{'invisible': [('picking_item_type_code_domain', '=', False)]}"/>
+              </xpath>
+              <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside" >
+                    <page string="Facturas" name="alpha_fiscal_page_d9HXS"  attrs="{'invisible': [('picking_type_code_domain', '=', False)]}" groups="base.group_user">
+                         <field name="invoice_move_ids" groups="base.group_user">
+                          <tree string="Facturas" js_class="account_tree" sample="1">
+                            <field name="invoice_date_first" string="Fecha"/>
+                            <field name="name" decoration-bf="1"/>
+                            <field name="alphabot_estado" string="Info imp. fiscal"/>
+                            <field name="partner_id" invisible="1"/>
+                              <field name="payment_state" widget="badge" decoration-danger="payment_state == 'not_paid'" decoration-warning="payment_state in ('partial', 'in_payment')" decoration-success="payment_state in ('paid', 'reversed')" attrs="{'invisible': [('payment_state', 'in', ('invoicing_legacy'))]}"/>
+                          </tree>
+                        </field>
+                    </page>
+              </xpath>
+        </field>
+    </record>
+
+     <record id="alphabot_stock_picking_tree" model="ir.ui.view">
+        <field name="name">Pick View facturada</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"/>
+        <field name="arch" type="xml">
+          <xpath expr="//field[@name='json_popover']" position="after">
+                <field name="picking_type_code_domain" invisible="1"/>
+                <field name="invoice_qty" string="Items Facturados" invisible="1"/>
+                <field name="invoice_state" widget="badge" decoration-muted="invoice_state == 'draft'" decoration-warning="invoice_state == 'invoiced_partial'" decoration-success="invoice_state == 'invoiced'"  attrs="{'invisible': [('picking_type_code_domain', '=', False)]}" />
+                <field name="picking_delivery_state" widget="badge" decoration-danger="picking_delivery_state == 'todelivery'" decoration-success="picking_delivery_state == 'delivered'" attrs="{'invisible': [('picking_type_code_domain', '=', False)]}"/>
+                <field name="invoice_date_first" optional="show"/>
+                <field name="invoice_alphabot_estado" optional="show"/>
+          </xpath>
+        </field>
+    </record>
+
+        <record id="action_picking_tree_todelivery" model="ir.actions.act_window">
+            <field name="name">Para despachar</field>
+            <field name="res_model">stock.picking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,kanban,form,calendar</field>
+            <field name="domain"></field>
+            <field name="context">{'contact_display': 'partner_address', 'search_default_delivery_state_todelivery': 1, 'search_default_invoiced_state': 1, 'search_default_invoice_date_first_today': 1}</field>
+            <field name="search_view_id" ref="stock.view_picking_internal_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No transfer found. Let's create one!
+                </p><p>
+                    Transfers allow you to move products from one location to another.
+                </p>
+            </field>
+        </record>
+
+        <record id="alphabot_view_picking_internal_search" model="ir.ui.view">
+            <field name="name">stock.picking.search</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+           <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="invoice_alphabot_estado"/>
+                </xpath>
+                <xpath expr="//field[@name='product_id']" position="after">
+                    <filter string="Incompleto" name="delivery_state_draft" domain="[('picking_delivery_state','=','draft')]"/>
+                    <filter string="Para Despachar" name="delivery_state_todelivery" domain="[('picking_delivery_state','=','todelivery')]"/>
+                    <filter string="Entregado" name="delivery_state_delivered" domain="[('picking_delivery_state','=','delivered')]"/>
+                    <separator/>
+                    <filter string="Facturado" name="invoiced_state" domain="[('invoice_state_display','=','invoiced')]"/>
+                    <filter string="No Facturado" name="no_invoiced_state" domain="[('invoice_state_display','!=','invoiced')]"/>
+                    <separator/>
+                    <filter string="Facturado hoy" name="invoice_date_first_today"  domain="[('invoice_date_first', '&gt;=', datetime.datetime.now().strftime('%Y-%m-%d 00:00:00')),('invoice_date_first', '&lt;=',datetime.datetime.now().strftime('%Y-%m-%d 23:23:59'))]"/>
+                </xpath>
+                <xpath expr="//filter[@name='cancel']" position="after">
+                    <separator/>
+                    <filter string="No cancelados" name="no_canceled" domain="[('state','!=','cancel')]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_delivered_picking" model="ir.actions.server">
+            <field name="name">Entregado</field>
+            <field name="model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code">
+            if records:
+                records.do_state_delivered()
+            </field>
+        </record>
+
+    </data>
+	
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+      <record id="alphabot_sale_order_view_search_inherit_sale" model="ir.ui.view">
+            <field name="name">sale.order.search.inherit.sale</field>
+            <field name="model">sale.order</field>
+            <field name="mode">extension</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search[1]/field[@name='partner_id']" position="after">
+                  <field name="amount_total" filter_domain="[('amount_total','ilike',self)]"/>
+                </xpath>
+            </field>
+        </record>
+</odoo>

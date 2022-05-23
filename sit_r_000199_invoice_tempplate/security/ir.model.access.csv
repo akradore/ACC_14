@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sit_r_000199_invoice_tempplate_sit_r_000199_invoice_tempplate,sit_r_000199_invoice_tempplate.sit_r_000199_invoice_tempplate,model_sit_r_000199_invoice_tempplate_sit_r_000199_invoice_tempplate,base.group_user,1,1,1,1
